@@ -1,0 +1,42 @@
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 posts per row */
+  gap: 16px; /* space between posts */
+  margin-top: 16px;
+}
+
+.post-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* ensures all cards in the row are equal height */
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Make images inside post-card equal size and fit the container */
+.post-card img {
+  width: 100%;
+  height: 200px; /* fixed height for all images */
+  object-fit: cover; /* crops/zooms to fit without distortion */
+  display: block;
+}
+
+/* Responsive: 2 posts per row on tablets, 1 per row on mobile */
+@media (max-width: 1024px) {
+  .posts-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .posts-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
